@@ -1,0 +1,55 @@
+% Kasse med statisk bredde
+\begin{tcolorbox}[title = Test statisk boks]
+\lipsum[6]
+\tcblower
+\lipsum[66]
+\end{tcolorbox}\\
+%
+% Kasse med dynamisk bredde
+\tcbox[title = Test dynamisk boks, varwidth upper = 11cm]{%
+\lipsum[66]
+}\\
+%
+% Kasse med tabel
+\tcbox[left = 0mm, right = 0mm, top = 0mm, bottom = 0mm, boxsep = 0mm, title = Test tabel]{%
+\renewcommand{\arraystretch}{1.2}%
+\begin{tabular}{c|S|c}
+\textbf{X} & \textbf{Y} & \textbf{Z}\\
+\hline
+2001   &   1.4    &   1000 \\\hline
+2002   &   2.56   &   2000 \\\hline
+2003   &  13.2    &   3000
+\end{tabular}}\hfill\\
+\\
+%
+% Test itemize
+\parbox[b]{4cm}{%
+Test itemize
+\begin{myitemize}
+\item Test
+\item Test
+\item Test
+\end{myitemize}
+\noindent Test
+}
+\parbox[b]{4cm}{%
+Test enumerate
+\begin{myenum}[label=\alph*)]
+\item Test
+\item Test
+\item Test
+\end{myenum}
+\noindent Test
+}
+\parbox[b]{5.43cm}{%
+Test equation
+\begin{myeq}
+e = M \cdot C^2
+\end{myeq}
+\noindent Test text
+\begin{mytext}
+Test\\
+Test
+\end{mytext}
+\noindent Test
+}

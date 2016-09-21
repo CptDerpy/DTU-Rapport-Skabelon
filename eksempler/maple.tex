@@ -1,0 +1,42 @@
+\begin{maplegroup}
+This is a test document to test LaTeX convertablity.
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{f := (x,y) -> x\symbol{94}2 + 2*x*y - 3;
+}{}
+\end{mapleinput}
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{f := proc (x, y) options operator, arrow; x^2+2*x*y-3 end proc}{\[\displaystyle f\, := \,( {x,y} )\mapsto {x}^{2}+2\,xy-3\]}
+\end{maplelatex}
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{with(plots):
+}{}
+\end{mapleinput}
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{plot3d(f(x,y), view = [-10..10,-10..10,-10..10]);
+}{}
+\end{mapleinput}
+\mapleresult
+% \mapleplot{TestLaTeXplot3d1.eps}
+\begin{center}
+\mapleplot{TestLaTeXplot3d1.eps}
+\end{center}
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{}{}
+\end{mapleinput}
+\end{maplegroup}
+
+\begin{Maple Normal}{
+Arealet af\textit{B}udregnes ved at trække det bestemte integral fra 0 til 2\mapleinline{inert}{2d}{Pi}{$\displaystyle \pi$}
+for funktionen\mapleinline{inert}{2d}{y = x+cos(x)}{$\displaystyle y=x+\cos \left( x \right) $}
+trukket fra funktionen\mapleinline{inert}{2d}{y = x+1}{$\displaystyle y=x+1$}
+.}\end{Maple Normal}

@@ -1,0 +1,108 @@
+% Packages
+\usepackage[danish]{babel} % Dansk sprog
+\usepackage{natbib} % Referencer
+\bibliographystyle{abbrvnat}
+\usepackage{amsmath, amsfonts, amssymb, everysel} % Avanceret matematik
+\usepackage{fancyhdr, lastpage} % Sidehoved og sidefod
+\setlength{\headheight}{15pt}
+\usepackage{lmodern} % Pænere standard skrifttype
+\usepackage{lipsum} % Fyldtekst
+\usepackage{tcolorbox, colortbl, varwidth} % Boks rundt om tekst
+\tcbuselibrary{skins, breakable}
+\usepackage{array, tabularx, siunitx} % Tabeller i bokse
+\usepackage{fontspec} % Nye skrifttyper
+\usepackage{enumitem} % Lettere ændringer i enumerate miljøet
+\usepackage{changepage} % Ændre margen
+\usepackage{sectsty} % Ændre overskrifter
+\usepackage[titles]{tocloft} % Fix indholdsfortegnelse tekst
+\usepackage{xcolor}
+\usepackage{graphicx} % Billeder
+\graphicspath{{images/}}
+\usepackage{microtype} % Pænere paragrafer
+\usepackage{styles/dtucolors} % DTU farver
+\usepackage[colorlinks = true, allcolors = s13, linkcolor = black]{hyperref} % Hyperlinks i dokumentet
+    
+% Sans-serif skrifttype
+\setsansfont[
+    Ligatures=TeX,
+    Extension=.otf,
+    UprightFont=*-regular,
+    BoldFont=*-bold,
+    ItalicFont=*-italic,
+    BoldItalicFont=*-bolditalic,
+    Scale=0.9
+]{texgyreadventor}
+
+% Sidehoved og sidefod generelt
+\pagestyle{fancy}
+    \fancyhf{}
+    \lhead{\footnotesize\sffamily\projecttitle~ --~ \nouppercase{\leftmark}}
+    \rhead{\footnotesize\sffamily\projectdate}
+    \lfoot{\footnotesize\sffamily\projectauthor}
+    \rfoot{\footnotesize\sffamily Side \thepage~af \pageref{LastPage}}
+    \renewcommand{\footrulewidth}{0.5pt}
+
+% Sidehoved og sidefod til indholdsfortegnelsen
+\fancypagestyle{toc}
+{
+    \fancyhf{}
+    \lhead{\footnotesize\sffamily\projecttitle}
+    \rhead{\footnotesize\sffamily\projectdate}
+    \lfoot{\footnotesize\sffamily\projectauthor}
+    \rfoot{\footnotesize\sffamily Indhold}
+    \renewcommand{\footrulewidth}{0.5pt}
+    \setcounter{page}{0}
+}
+
+% Overskrifter
+\sectionfont{\raggedright\LARGE\normalfont\sffamily}
+\subsectionfont{\large\normalfont\sffamily}
+\subsubsectionfont{\it\sffamily}
+\renewcommand{\thesection}{\hspace{-1em}}
+\renewcommand{\thesubsection}{\hspace{-1em}}
+\renewcommand{\thesubsubsection}{\hspace{-1em}}
+
+% Boks-indstillinger
+\tcbset{enhanced, skin = bicolor, breakable,
+colframe = dtured, coltitle = white, colupper = white, colback = dtured, colbacklower = white,
+fonttitle = \sffamily\bfseries\large, nobeforeafter,
+toptitle = 1mm, bottomtitle = 1mm, after title = \vspace{2mm}\hrule\vspace{-1mm}}
+
+% Fancy itemize
+\newenvironment{myitemize}{%
+\begin{itemize}}{\end{itemize}}
+\tcolorboxenvironment{myitemize}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = -2mm}
+
+% Fancy enumerate
+\newenvironment{myenum}{%
+\begin{enumerate}}{\end{enumerate}}
+\tcolorboxenvironment{myenum}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = -1mm}
+
+% Fancy equation
+\newenvironment{myeq}{%
+\begin{equation}}{\end{equation}}
+\tcolorboxenvironment{myeq}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = 4mm}
+\newenvironment{myeq*}{%
+\begin{equation*}}{\end{equation*}}
+\tcolorboxenvironment{myeq*}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = 4mm}
+
+% Fancy align
+\newenvironment{myalign}{%
+\begin{align}}{\end{align}}
+\tcolorboxenvironment{myalign}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = 4mm}
+\newenvironment{myalign*}{%
+\begin{align*}}{\end{align*}}
+\tcolorboxenvironment{myalign*}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = 4mm}
+
+% % Fancy text
+\newenvironment{mytext}{\vspace{1mm}}{\vspace{.5mm}}
+\tcolorboxenvironment{mytext}{blanker, before skip=6pt, after skip=6pt, borderline west={2mm}{0pt}{dtured}, colupper = black, left = 4mm}
+
+% Fix kolonner i tabeller
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Vector command
+\renewcommand{\vec}[1]{
+\begin{bmatrix} #1 \end{bmatrix}}

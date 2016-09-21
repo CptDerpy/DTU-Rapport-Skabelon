@@ -1,0 +1,26 @@
+\documentclass[12pt, a4paper, titlepage]{article}
+% \usepackage{showframe}
+\input{preamble}
+
+% Statisk info
+\def\subjectid          {00000}
+\def\subject            {Fagets Navn}
+\def\projectauthor      {August Birk Olsen (s154110)}
+\def\projectdate        {\today}
+\def\projecttitle       {Titel}
+\def\projectsubtitle    {Undertitel}
+
+\begin{document}
+
+% Forside
+\include{titlepage}
+
+% Indholdsfortegnelse
+\tableofcontents
+\thispagestyle{toc}
+\newpage
+
+\include{afsnit/afsnit1}
+\include{afsnit/referencer}
+
+\end{document}
